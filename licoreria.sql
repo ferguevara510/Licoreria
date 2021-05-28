@@ -31,7 +31,7 @@ CREATE TABLE `empleado` (
   `numTrabajador` varchar(3) COLLATE utf8_spanish_ci NOT NULL,
   `nombre` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `apellidos` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
-  `contraseña` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `contrasena` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `tipo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -39,7 +39,7 @@ CREATE TABLE `empleado` (
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`numTrabajador`, `nombre`, `apellidos`, `contraseña`, `tipo`) VALUES
+INSERT INTO `empleado` (`numTrabajador`, `nombre`, `apellidos`, `contrasena`, `tipo`) VALUES
 ('001', 'Karla', 'Guevara', 'adm', 1),
 ('002', 'Nadia', 'Bravo', 'adm', 1);
 
