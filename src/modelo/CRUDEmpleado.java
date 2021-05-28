@@ -18,7 +18,7 @@ public class CRUDEmpleado {
      public void nuevoEmpleado(String numTrabajador, String nombre, String apellidos, String contraseña,Boolean tipo){
         try {
             PreparedStatement pstm;
-            pstm = con.prepareStatement("insert into empleado(numTrabajador,nombre,apellidos,contraseña,tipo) values(?,?,?,?,?)");
+            pstm = con.prepareStatement("insert into empleado(numTrabajador,nombre,apellidos,contrasena,tipo) values(?,?,?,?,?)");
                 pstm.setString(1,numTrabajador);
                 pstm.setString(2,nombre);
                 pstm.setString(3,apellidos);
@@ -42,7 +42,7 @@ public class CRUDEmpleado {
     public void editarEmpleado(String numT, Empleado empleado){
         try{
             PreparedStatement query; 
-            query = con.prepareStatement("UPDATE empleado SET nombre=?, apellidos= ?, contraseña= ?, tipo = ? WHERE numTrabajador= ?");
+            query = con.prepareStatement("UPDATE empleado SET nombre=?, apellidos= ?, contrasena= ?, tipo = ? WHERE numTrabajador= ?");
             query.setString(1, empleado.getNombre());
             query.setString(2, empleado.getApellidos());
             query.setString(3, empleado.getContraseña());
