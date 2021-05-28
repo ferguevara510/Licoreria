@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="600.0" minWidth="650.0" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLPrincipalController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="811.0" style="-fx-background-color: #D7CCC8;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="227.0" layoutY="22.0" text="LICORERIA" textFill="#d32f2f">
+               <font>
+                  <Font name="Bernard MT Condensed" size="50.0" />
+               </font>
+            </Label>
+            <Button fx:id="cerrarSesionBtn" layoutX="502.0" layoutY="539.0" mnemonicParsing="false" onMouseClicked="#cerrarSesion" style="-fx-background-radius: 55; -fx-background-color: #BDBDBD;" text="Cerrar Sesión" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="539.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="productosBtn" layoutX="94.0" layoutY="250.0" mnemonicParsing="false" onMouseClicked="#irProducto" style="-fx-background-radius: 55; -fx-background-color: #FFB74D;" text="PRODUCTOS" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="406.0" AnchorPane.topAnchor="250.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="empleadosBtn" layoutX="410.0" layoutY="250.0" mnemonicParsing="false" onMouseClicked="#irEmpleado" style="-fx-background-radius: 55; -fx-background-color: #FFB74D;" text="EMPLEADOS" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="250.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="reporteVentasBtn" alignment="CENTER" layoutX="195.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#genReporte" prefWidth="250.0" style="-fx-background-radius: 55; -fx-background-color: #FFB74D;" text="GENERAR REPORTE DE VENTAS" textAlignment="CENTER" AnchorPane.bottomAnchor="79.39999999999998" AnchorPane.leftAnchor="195.0" AnchorPane.rightAnchor="205.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="169.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../vista/imagenes/vintage.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="430.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../vista/imagenes/vintage.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="94.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../vista/imagenes/liquor.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="410.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../vista/imagenes/employee.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="245.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/inventario.png" />
+               </image>
+            </ImageView>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
