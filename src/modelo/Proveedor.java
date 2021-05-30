@@ -14,18 +14,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Proveedor {
-    private int idProvedor;
+    private int idProveedor;
     private String direccion;
     private String empresa;
     private String nombre;
     private String numTelefono;
 
-    public int getIdProvedor() {
-        return idProvedor;
+    public int getIdProveedor() {
+        return idProveedor;
     }
 
-    public void setIdProvedor(int idProvedor) {
-        this.idProvedor = idProvedor;
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
     public String getDireccion() {
@@ -133,7 +133,7 @@ public class Proveedor {
             query.setString(2,this.empresa);
             query.setString(3,this.nombre);
             query.setString(4,this.numTelefono);
-            query.setInt(5,this.idProvedor);
+            query.setInt(5,this.idProveedor);
             query.execute();
             query.close();
             validacion = true;
@@ -174,7 +174,7 @@ public class Proveedor {
             while (result.next()){
                 proveedor = new Proveedor();
 
-                proveedor.setIdProvedor(result.getInt("idProvedor"));
+                proveedor.setIdProveedor(result.getInt("idProvedor"));
                 proveedor.setDireccion(result.getString("direccion"));
                 proveedor.setEmpresa(result.getString("empresa"));
                 proveedor.setNombre(result.getString("nombre"));
