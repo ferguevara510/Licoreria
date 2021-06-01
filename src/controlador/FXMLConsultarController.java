@@ -120,7 +120,6 @@ public class FXMLConsultarController implements Initializable{
             root = FXMLLoader.load(getClass().getClassLoader().getResource("vista/EditarEmpleado.fxml"));
             Stage stage = new Stage();
             stage.setTitle(" DatosEmpleado ");
-            System.out.println(table.getSelectionModel().getSelectedItem().getNombre());
             stage.setScene(new Scene(root, 600, 375));
             stage.show();
             stage.setResizable(false);

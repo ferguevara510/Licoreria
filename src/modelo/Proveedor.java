@@ -60,7 +60,7 @@ public class Proveedor {
         this.numTelefono = numTelefono;
     }
 
-    public boolean registrarProvedor(Proveedor proveedor) throws CRUDExcepcion{
+    public boolean registrarProvedor() throws CRUDExcepcion{
         boolean validacion = false;
         Connection conexion = SingleConnection.getInstance();
         try {
@@ -164,6 +164,9 @@ public class Proveedor {
                 case BUSCAR_CONTENGA_NOMBRE:
                     query = conexion.prepareStatement("select * from provedor where borrado != 0 and nombre LIKE ? ESCAPE '!'");
                     query.setString(1, "%"+cadenaBusqueda+"%");
+                    break;
+                case BUSCAR_PROVEEDORES_NO_BORRADOS:
+                    query = conexion.prepareStatement("select * from provedor where borrado != 0");
                     break;
                 default:
                     query = conexion.prepareStatement("select * from provedor");

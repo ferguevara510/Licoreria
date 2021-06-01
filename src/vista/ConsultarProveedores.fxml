@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLConsultarProveedorController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #D7CCC8;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="87.0" layoutY="29.0" text="LICORERIA" textFill="#d32f2f" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="19.0">
+               <font>
+                  <Font name="Bernard MT Condensed" size="50.0" />
+               </font>
+            </Label>
+            <TextField fx:id="buscarProveedorTf" layoutX="187.0" layoutY="125.0" style="-fx-background-color: #EFEBE9;" AnchorPane.leftAnchor="700.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font></TextField>
+            <Button fx:id="buscarProveedorBtn" layoutX="700.0" layoutY="53.0" mnemonicParsing="false" onMouseClicked="#consultar" style="-fx-background-color: #FFCC80; -fx-background-radius: 55;" text="Buscar" AnchorPane.leftAnchor="700.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="53.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="cerrarBtn" layoutX="192.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#regresar" style="-fx-background-color: #BDBDBD; -fx-background-radius: 55;" text="Regresar" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="750.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="registroProveedorBtn" layoutX="66.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#agregar" style="-fx-background-color: #FFCC80; -fx-background-radius: 55;" text="Registrar" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="300.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="editarProveedorBtn" layoutX="116.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#editar" style="-fx-background-color: #FFCC80; -fx-background-radius: 55;" text="Editar" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="625.0" AnchorPane.rightAnchor="175.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="eliminarProveedorBtn" layoutX="106.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#eliminar" style="-fx-background-color: #FFCC80; -fx-background-radius: 55;" text="Eliminar" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="750.0" AnchorPane.rightAnchor="50.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <TableView fx:id="table" blendMode="HARD_LIGHT" layoutX="50.0" layoutY="100.0" prefHeight="435.0" prefWidth="811.0" style="-fx-background-color: #EFEBE9#FFCC80;">
+              <columns>
+                  <TableColumn fx:id="col_empresa" prefWidth="129.0" text="Empresa" />
+                <TableColumn fx:id="col_nombre" prefWidth="365.0" text="Nombre" />
+                  <TableColumn fx:id="col_direccion" minWidth="0.0" prefWidth="192.0" text="Dirección" />
+                  <TableColumn fx:id="col_telefono" minWidth="0.0" prefWidth="124.0" text="Teléfono" />
+              </columns>
+            </TableView>
+            <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="276.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/vintage.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="20.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagenes/vintage.png" />
+               </image>
+            </ImageView>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
