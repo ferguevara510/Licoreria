@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLVentasController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-color: #D7CCC8;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="79.0" layoutY="41.0" text="LICORERIA" textFill="#d32f2f" AnchorPane.leftAnchor="79.0" AnchorPane.topAnchor="41.0">
+               <font>
+                  <Font name="Bernard MT Condensed" size="35.0" />
+               </font>
+            </Label>
+            <TextField fx:id="buscarProductoTf" layoutX="303.0" layoutY="19.0" style="-fx-background-color: #EFEBE9;" AnchorPane.leftAnchor="303.0" AnchorPane.rightAnchor="632.0" AnchorPane.topAnchor="19.0">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font></TextField>
+            <Button fx:id="buscarProductoBtn" layoutX="303.0" layoutY="54.0" mnemonicParsing="false" onMouseClicked="#consultar" style="-fx-background-radius: 55; -fx-background-color: #FFCC80;" text="Buscar" AnchorPane.leftAnchor="303.0" AnchorPane.rightAnchor="632.0" AnchorPane.topAnchor="54.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="cerrarBtn" layoutX="42.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#cancelar" prefHeight="30.0" prefWidth="33.0" style="-fx-background-radius: 55; -fx-background-color: #BDBDBD;" text="Salir" AnchorPane.bottomAnchor="24.800000000000068" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="960.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="agregarProductoBtn" layoutX="338.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#agregarVenta" prefHeight="30.0" prefWidth="101.0" style="-fx-background-radius: 55; -fx-background-color: #FFCC80;" text="Agregar" AnchorPane.bottomAnchor="24.800000000000068" AnchorPane.leftAnchor="338.0" AnchorPane.rightAnchor="652.0">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <TableView fx:id="table" layoutX="42.0" layoutY="100.0" prefHeight="431.0" prefWidth="425.0" style="-fx-background-color: #EFEBE9#FFCC80;">
+               <columns>
+                  <TableColumn fx:id="col_nombre" prefWidth="242.39994430541992" text="Nombre" />
+                  <TableColumn fx:id="col_precio" prefWidth="108.79998779296875" text="Precio" />
+                  <TableColumn fx:id="col_cantidad" prefWidth="73.60003662109375" text="Cantidad" />
+               </columns>
+            </TableView>
+            <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="224.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../vista/imagenes/vintage.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="34.0" layoutX="42.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../vista/imagenes/vintage.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tableVenta" editable="true" focusTraversable="false" layoutX="498.0" layoutY="100.0" prefHeight="431.0" prefWidth="566.0" style="-fx-background-color: #EFEBE9#FFCC80;">
+               <columns>
+                  <TableColumn fx:id="col_nombreventa" prefWidth="256.0" text="Nombre" />
+                  <TableColumn fx:id="col_precioventa" prefWidth="88.800048828125" text="Precio" />
+                  <TableColumn fx:id="col_cantidadventa" prefWidth="79.199951171875" text="Cantidad" />
+                  <TableColumn fx:id="col_subtotalventa" prefWidth="140.00018310546875" text="Subtotal" />
+               </columns>
+            </TableView>
+            <Label layoutX="835.0" layoutY="54.0" text="Total">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="totalTf" editable="false" layoutX="884.0" layoutY="48.0" style="-fx-background-color: #EFEBE9;" text="0">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="ventaProductoBtn" layoutX="947.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#guardarVenta" prefHeight="30.0" prefWidth="101.0" style="-fx-background-radius: 55; -fx-background-color: #FFCC80;" text="Guardar" AnchorPane.bottomAnchor="24.800000000000068" AnchorPane.rightAnchor="51.40000000000009">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="eliminarProductoBtn" layoutX="826.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#eliminarDeVenta" prefHeight="30.0" prefWidth="101.0" style="-fx-background-radius: 55; -fx-background-color: #FFCC80;" text="Eliminar" AnchorPane.bottomAnchor="24.800000000000068" AnchorPane.rightAnchor="172.39999999999998">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
