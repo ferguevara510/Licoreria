@@ -60,7 +60,7 @@ public class FXMLRegistrarProveedorController implements Initializable {
     }
 
     private boolean validarCamposVacios(){
-        return direccionProveedorTf.getText().trim().isEmpty() && nombreProveedorTf.getText().trim().isEmpty() && empresaProveedorTf.getText().trim().isEmpty() && telefonoProveedorTf.getText().trim().isEmpty();
+        return direccionProveedorTf.getText().trim().isEmpty() || nombreProveedorTf.getText().trim().isEmpty() || empresaProveedorTf.getText().trim().isEmpty() || telefonoProveedorTf.getText().trim().isEmpty();
     }
 
     @FXML

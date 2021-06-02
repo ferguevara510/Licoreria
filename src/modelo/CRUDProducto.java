@@ -1,6 +1,6 @@
 package modelo;
 
-import modelo.util.SingleConnection;
+import modelo.util.Conexion;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -10,17 +10,18 @@ public class CRUDProducto {
     private final Connection con;
     
     public CRUDProducto() {
-        con = SingleConnection.getInstance();
+        con = Conexion.getInstance();
     }
     
-    public void nuevoProducto(String nombre, String marca, float precio, int cantidad){
+    public void nuevoProducto(String nombre, String marca, float precio, int cantidad, int idProveedor){
         try {
             PreparedStatement pstm; 
-            pstm = con.prepareStatement("insert into producto(nombre,marca,precio,cantidad) values(?,?,?,?)");
+            pstm = con.prepareStatement("insert into producto(nombre,marca,precio,cantidad,idProveedor) values(?,?,?,?,?)");
                 pstm.setString(1,nombre);
                 pstm.setString(2,marca);
                 pstm.setFloat(3,precio);
                 pstm.setInt(4,cantidad);
+                pstm.setInt(5,idProveedor);
                 pstm.execute();
                 pstm.close();
         } catch (SQLException e) {
@@ -36,16 +37,18 @@ public class CRUDProducto {
         }
     }
     
-    public void editarProducto(String nombreA, Producto pr){
+    public void editarProducto(String nombreA, Producto proveedor){
         try{
-            PreparedStatement pstm; 
-            System.out.println("UPDATE producto SET nombre='"+pr.getNombre()+"', marca='"+pr.getMarca()+
-                    "', precio="+pr.getPrecio()+", cantidad="+pr.getCantidad()+" WHERE nombre='"+nombreA+"'");
-            pstm = con.prepareStatement("UPDATE producto SET nombre='"+pr.getNombre()+"', marca='"+pr.getMarca()+
-                    "', precio="+pr.getPrecio()+", cantidad="+pr.getCantidad()+" WHERE nombre='"+nombreA+"'");
-                pstm.execute();
-                //cierro el pstm para evitar gasto de recursos
-                pstm.close();
+            PreparedStatement pstm;
+            pstm = con.prepareStatement("UPDATE producto SET nombre=?, marca=?, precio=?, cantidad=?, idProveedor = ? WHERE nombre=?");
+            pstm.setString(1,proveedor.getNombre());
+            pstm.setString(2,proveedor.getMarca());
+            pstm.setFloat(3,proveedor.getPrecio());
+            pstm.setInt(4,proveedor.getCantidad());
+            pstm.setInt(5,proveedor.getIdProveedor());
+            pstm.setString(6,proveedor.getNombre());
+            pstm.execute();
+            pstm.close();
         } catch (SQLException e) {
             System.out.println(e);
         }finally{

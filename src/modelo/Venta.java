@@ -1,6 +1,6 @@
 package modelo;
 
-import modelo.util.SingleConnection;
+import modelo.util.Conexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -54,7 +54,7 @@ public class Venta {
     
     public Boolean guardarVenta(Venta venta){
         Boolean validacion = false;
-        Connection conexion = SingleConnection.getInstance();
+        Connection conexion = Conexion.getInstance();
         DateFormat hourDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             conexion.setAutoCommit(false);

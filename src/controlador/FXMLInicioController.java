@@ -1,6 +1,6 @@
 package controlador;
 
-import modelo.util.SingleConnection;
+import modelo.util.Conexion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 import modelo.Empleado;
 
 public class FXMLInicioController implements Initializable{
-    Connection con = SingleConnection.getInstance();
+    Connection con = Conexion.getInstance();
     ResultSet rs;
     @FXML
     private TextField usuarioTf;
@@ -80,7 +80,7 @@ public class FXMLInicioController implements Initializable{
     
     private int verificarContraseña() throws SQLException{
         int v=0;
-        rs = con.createStatement().executeQuery("select * from empleado where numTrabajador='"+usuarioTf.getText()+"' and contraseña='"+contraseñaPf.getText()+"'");
+        rs = con.createStatement().executeQuery("select * from empleado where numTrabajador='"+usuarioTf.getText()+"' and contrasena='"+contraseñaPf.getText()+"'");
         if(rs.next()){
             v=1;
         }else{

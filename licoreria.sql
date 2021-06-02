@@ -45,6 +45,15 @@ INSERT INTO `empleado` (`numTrabajador`, `nombre`, `apellidos`, `contrasena`, `t
 
 -- --------------------------------------------------------
 
+CREATE TABLE `proveedor` (
+ `nombre` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+ `empresa` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+ `telefono` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+ `direccion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+ `idProveedor` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ `borrado` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
 --
 -- Estructura de tabla para la tabla `producto`
 --
@@ -54,7 +63,9 @@ CREATE TABLE `producto` (
   `marca` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `precio` float NOT NULL,
   `cantidad` int(3) NOT NULL,
-  `borrado` tinyint(1) DEFAULT 0
+  `idProveedor` int(3) NOT NULL,
+  `borrado` tinyint(1) DEFAULT 0,
+  FOREIGN KEY (`idProveedor`) REFERENCES `proveedor`(`idProveedor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -130,8 +141,6 @@ ALTER TABLE `venta_producto`
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
-ALTER TABLE `venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas

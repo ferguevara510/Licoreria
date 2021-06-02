@@ -1,6 +1,6 @@
 package modelo;
 
-import modelo.util.SingleConnection;
+import modelo.util.Conexion;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ public class CRUDEmpleado {
     private final Connection con;
     
     public CRUDEmpleado() {
-        con = SingleConnection.getInstance();
+        con = Conexion.getInstance();
     }
     
      public void nuevoEmpleado(String numTrabajador, String nombre, String apellidos, String contraseña,Boolean tipo){

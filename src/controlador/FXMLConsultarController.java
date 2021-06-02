@@ -24,7 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import modelo.util.SingleConnection;
+import modelo.util.Conexion;
 
 public class FXMLConsultarController implements Initializable{
     public static Empleado aux= new Empleado();
@@ -76,7 +76,7 @@ public class FXMLConsultarController implements Initializable{
     
     @FXML
     public void consultar(MouseEvent event){
-        Connection con = SingleConnection.getInstance();
+        Connection con = Conexion.getInstance();
         ResultSet rs;
         try {
             this.table.getItems().clear();
@@ -133,7 +133,7 @@ public class FXMLConsultarController implements Initializable{
     
     @FXML
     public void eliminar(MouseEvent event){
-        Connection con = SingleConnection.getInstance();
+        Connection con = Conexion.getInstance();
         try {
             Empleado rowSelected = table.getSelectionModel().getSelectedItem();
             String selec = table.getSelectionModel().getSelectedItem().getNumTrabajador();
@@ -159,7 +159,7 @@ public class FXMLConsultarController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Connection con = SingleConnection.getInstance();
+        Connection con = Conexion.getInstance();
         ResultSet rs;
         try {
             rs = con.createStatement().executeQuery("select * from empleado");

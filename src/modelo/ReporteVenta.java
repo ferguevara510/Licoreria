@@ -2,7 +2,7 @@ package modelo;
 
 import com.itextpdf.text.pdf.*;
 import com.itextpdf.text.*;
-import modelo.util.SingleConnection;
+import modelo.util.Conexion;
 
 import java.sql.*;
 import java.io.*;
@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.logging.*;
 
 public class ReporteVenta {
-    Connection conn = SingleConnection.getInstance();
+    Connection conn = Conexion.getInstance();
     Document docu;
     PdfWriter escribir;
     String strRotuloPDF = "Reporte de ventas";
@@ -35,7 +35,6 @@ public class ReporteVenta {
             agregarMetaDatos(docu);
             agregarContenido(docu);
             docu.close();
-            System.out.println("Se ha generado el reporte");
         }catch(Exception e){
             e.printStackTrace();
         } 
@@ -115,7 +114,6 @@ public class ReporteVenta {
                 Logger.getLogger(ReporteVenta.class.getName()).log(Level.SEVERE, null, ex);
             }
         }catch(Exception e){
-            System.out.println("Excepcion al ejecutar CONSULTA!!!");
             e.printStackTrace();
         }
         parrafo.add(tabla);

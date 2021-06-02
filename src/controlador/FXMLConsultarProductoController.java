@@ -63,6 +63,7 @@ public class FXMLConsultarProductoController implements Initializable{
             aux.setMarca(sele.getMarca());
             aux.setCantidad(sele.getCantidad());
             aux.setPrecio(sele.getPrecio());
+            aux.setIdProveedor(sele.getIdProveedor());
             Parent root; 
             root = FXMLLoader.load(getClass().getClassLoader().getResource("vista/EditarProducto.fxml"));
             Stage stage = new Stage();

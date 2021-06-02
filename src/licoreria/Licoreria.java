@@ -12,7 +12,7 @@ public class Licoreria extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vista/RegistrarPorveedor.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/vista/IniciarSesion.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("IniciarSesion");

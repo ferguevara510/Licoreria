@@ -1,6 +1,6 @@
 package modelo;
 
-import modelo.util.SingleConnection;
+import modelo.util.Conexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -68,7 +68,7 @@ public class Empleado {
     }
     
     public Empleado obtenerEmpleado(String numTrabajador){
-        Connection connection = SingleConnection.getInstance();
+        Connection connection = Conexion.getInstance();
         Empleado empleado = null;
         try {
             PreparedStatement query = connection.prepareStatement("select * from empleado where numTrabajador = ?");

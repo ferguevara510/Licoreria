@@ -3,9 +3,9 @@ package modelo.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class SingleConnection {
+public class Conexion {
     
-    private SingleConnection(){}
+    private Conexion(){}
     
     public static Connection getInstance(){
         Connection coneccon = null;

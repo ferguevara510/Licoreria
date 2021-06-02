@@ -112,5 +112,9 @@ public class FXMLPrincipalController implements Initializable{
         //Moverlos
         
     }
-    
+
+    @FXML
+    private void irProveedor(MouseEvent mouseEvent) throws IOException {
+        VistaController.cargarVista(mouseEvent,"Consultar Provedor","vista/ConsultarProveedores.fxml");
+    }
 }

@@ -2,7 +2,7 @@ package modelo;
 
 import modelo.excepcion.CRUDExcepcion;
 import modelo.util.BusquedaProveedor;
-import modelo.util.SingleConnection;
+import modelo.util.Conexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,9 +62,9 @@ public class Proveedor {
 
     public boolean registrarProvedor() throws CRUDExcepcion{
         boolean validacion = false;
-        Connection conexion = SingleConnection.getInstance();
+        Connection conexion = Conexion.getInstance();
         try {
-            PreparedStatement query = conexion.prepareStatement("insert into provedor(direccion,empresa,nombre,numTelefono) values(?,?,?,?)");
+            PreparedStatement query = conexion.prepareStatement("insert into proveedor(direccion,empresa,nombre,telefono) values(?,?,?,?)");
             query.setString(1,this.direccion);
             query.setString(2,this.empresa);
             query.setString(3,this.nombre);
@@ -87,19 +87,19 @@ public class Proveedor {
         return validacion;
     }
 
-    public boolean borrarProvedor(int idProvedor){
+    public static boolean borrarProvedor(int idProvedor){
         boolean validacion = false;
 
-        Connection conexion = SingleConnection.getInstance();
+        Connection conexion = Conexion.getInstance();
 
         try{
             conexion.setAutoCommit(false);
-            PreparedStatement deleteProvedor = conexion.prepareStatement("update provedor set borrado = 1 where idProvedor = ?");
+            PreparedStatement deleteProvedor = conexion.prepareStatement("update proveedor set borrado = 1 where idProveedor = ?");
             deleteProvedor.setInt(1, idProvedor);
             deleteProvedor.execute();
             deleteProvedor.close();
 
-            PreparedStatement deleteProducto = conexion.prepareStatement("update producto set borrado = 1 where idProvedor = ?");
+            PreparedStatement deleteProducto = conexion.prepareStatement("update producto set borrado = 1 where idProveedor = ?");
             deleteProducto.setInt(1, idProvedor);
             deleteProducto.execute();
             deleteProducto.close();
@@ -126,9 +126,9 @@ public class Proveedor {
 
     public boolean editarProvedor(){
         boolean validacion;
-        Connection conexion = SingleConnection.getInstance();
+        Connection conexion = Conexion.getInstance();
         try {
-            PreparedStatement query = conexion.prepareStatement("update set provedor set direccion = ?,empresa = ?,nombre = ?,numTelefono = ? where idProvedor = ?");
+            PreparedStatement query = conexion.prepareStatement("update proveedor set direccion = ?, empresa = ?, nombre = ?, telefono = ? where idProveedor = ?");
             query.setString(1,this.direccion);
             query.setString(2,this.empresa);
             query.setString(3,this.nombre);
@@ -154,7 +154,7 @@ public class Proveedor {
     public List<Proveedor> obtenerProvedores(String cadenaBusqueda, BusquedaProveedor busqueda){
         List<Proveedor> provedores = new ArrayList<>();
 
-        Connection conexion = SingleConnection.getInstance();
+        Connection conexion = Conexion.getInstance();
         Proveedor proveedor = null;
 
         try {
@@ -162,14 +162,14 @@ public class Proveedor {
 
             switch (busqueda){
                 case BUSCAR_CONTENGA_NOMBRE:
-                    query = conexion.prepareStatement("select * from provedor where borrado != 0 and nombre LIKE ? ESCAPE '!'");
+                    query = conexion.prepareStatement("select * from proveedor where borrado != 0 and nombre LIKE ? ESCAPE '!'");
                     query.setString(1, "%"+cadenaBusqueda+"%");
                     break;
                 case BUSCAR_PROVEEDORES_NO_BORRADOS:
-                    query = conexion.prepareStatement("select * from provedor where borrado != 0");
+                    query = conexion.prepareStatement("select * from proveedor where borrado = 0");
                     break;
                 default:
-                    query = conexion.prepareStatement("select * from provedor");
+                    query = conexion.prepareStatement("select * from proveedor");
                     break;
             }
 
@@ -177,11 +177,11 @@ public class Proveedor {
             while (result.next()){
                 proveedor = new Proveedor();
 
-                proveedor.setIdProveedor(result.getInt("idProvedor"));
+                proveedor.setIdProveedor(result.getInt("idProveedor"));
                 proveedor.setDireccion(result.getString("direccion"));
                 proveedor.setEmpresa(result.getString("empresa"));
                 proveedor.setNombre(result.getString("nombre"));
-                proveedor.setNumTelefono(result.getString("numTelefono"));
+                proveedor.setNumTelefono(result.getString("telefono"));
 
                 provedores.add(proveedor);
             }
@@ -199,5 +199,10 @@ public class Proveedor {
         }
 
         return provedores;
+    }
+
+    @Override
+    public String toString(){
+        return this.empresa;
     }
 }
