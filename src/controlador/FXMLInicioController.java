@@ -45,7 +45,8 @@ public class FXMLInicioController implements Initializable{
                     Empleado empleado = new Empleado();
                     empleado = empleado.obtenerEmpleado(usuarioTf.getText());
                     System.getProperties().put("Empleado", empleado.isTipo());
-                    Parent root; 
+                    System.getProperties().put("Id_empleado", empleado.getNumTrabajador());
+                    Parent root;
                     root = FXMLLoader.load(getClass().getClassLoader().getResource("vista/Principal.fxml"));
                     Stage stage = new Stage();
                     stage.setTitle(" Principal ");

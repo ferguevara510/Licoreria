@@ -47,31 +47,26 @@ public class FXMLDatosProductoController implements Initializable{
             float precio = Float.parseFloat(precioProductoTf.getText());
             int cantidad = Integer.parseInt(cantidadProductoTf.getText());
             Proveedor proveedor = this.cbProvedor.getValue();
-            if (proveedor == null){
-                MensajeController.mensajeAdvertencia("Selecciona un proveedor");
-            }else {
-                Producto producto = new Producto();
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "¿Realmente desea guardar?", ButtonType.YES, ButtonType.NO);
-                ButtonType result = alert.showAndWait().orElse(ButtonType.NO);
-                if (producto.obtenerProducto(nombre) == null){
-                    CRUDProducto agre =new CRUDProducto();
-                    Alert aler = new Alert(Alert.AlertType.INFORMATION, "¡Registro exitoso!", ButtonType.OK);
-                    agre.nuevoProducto(nombre, marca, precio, cantidad,cbProvedor.getValue().getIdProveedor());
-                    ButtonType resul = aler.showAndWait().orElse(ButtonType.OK);
-                    if (ButtonType.OK.equals(resul)) {
-                        limpiar();
-                        Parent root;
-                        root = FXMLLoader.load(getClass().getClassLoader().getResource("vista/DatosProducto.fxml"));
-                        Stage stage = new Stage();
-                        stage.setTitle(" DatosProducto ");
-                        stage.setScene(new Scene(root, 600, 375));
-                        stage.show();
-                        stage.setResizable(false);
-                        stage.getIcons().add(new Image("/vista/imagenes/vintage.png"));
-                        ((Node)(event.getSource())).getScene().getWindow().hide();
+            if(this.cbProvedor.getItems().isEmpty()){
+                MensajeController.mensajeAdvertencia("Tiene que registrar un porveedor para poder registrar productos");
+            }else{
+                if (proveedor == null){
+                    MensajeController.mensajeAdvertencia("Selecciona un proveedor");
+                }else {
+                    Producto producto = new Producto();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "¿Realmente desea guardar?", ButtonType.YES, ButtonType.NO);
+                    ButtonType result = alert.showAndWait().orElse(ButtonType.NO);
+                    if (producto.obtenerProducto(nombre) == null){
+                        CRUDProducto agre =new CRUDProducto();
+                        Alert aler = new Alert(Alert.AlertType.INFORMATION, "¡Registro exitoso!", ButtonType.OK);
+                        agre.nuevoProducto(nombre, marca, precio, cantidad,cbProvedor.getValue().getIdProveedor());
+                        ButtonType resul = aler.showAndWait().orElse(ButtonType.OK);
+                        if (ButtonType.OK.equals(resul)) {
+                            limpiar();
+                        }
+                    } else{
+                        MensajeController.mensajeAdvertencia("El Producto ya existe");
                     }
-                } else{
-                    MensajeController.mensajeAdvertencia("El Producto ya existe");
                 }
             }
         }
@@ -87,7 +82,12 @@ public class FXMLDatosProductoController implements Initializable{
         Proveedor proveedor = new Proveedor();
         List<Proveedor> proveedores = proveedor.obtenerProvedores("", BusquedaProveedor.BUSCAR_PROVEEDORES_NO_BORRADOS);
         ObservableList<Proveedor> listaProveedores = FXCollections.observableArrayList(proveedores);
-        this.cbProvedor.setItems(listaProveedores);
+        if(listaProveedores.isEmpty()){
+            MensajeController.mensajeAdvertencia("Tiene que registrar un porveedor para poder registrar productos");
+            this.cbProvedor.setItems(listaProveedores);
+        }else{
+            this.cbProvedor.setItems(listaProveedores);
+        }
     }
     
     public void limpiar(){
@@ -95,6 +95,7 @@ public class FXMLDatosProductoController implements Initializable{
         cantidadProductoTf.setText("");
         precioProductoTf.setText("");
         marcaProductoTf.setText("");
+        this.cbProvedor.setValue(null);
     }
     
     public boolean camposVacios(){

@@ -74,6 +74,7 @@ public class FXMLEditarProductoController implements Initializable{
         List<Proveedor> proveedores = proveedor.obtenerProvedores("", BusquedaProveedor.BUSCAR_PROVEEDORES_NO_BORRADOS);
         ObservableList<Proveedor> listaProveedores = FXCollections.observableArrayList(proveedores);
         this.cbProveedor.setItems(listaProveedores);
+        this.cbProveedor.getItems().removeAll();
 
         for (Proveedor proveedorASeleccionar: listaProveedores) {
             if(proveedorASeleccionar.getIdProveedor() == FXMLConsultarProductoController.aux.getIdProveedor()){

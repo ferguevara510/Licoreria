@@ -165,9 +165,9 @@ public class FXMLConsultarController implements Initializable{
             rs = con.createStatement().executeQuery("select * from empleado");
             while (rs.next()){
                 if(rs.getBoolean("tipo")){
-                    oblist.add(new Empleado(rs.getString("numTrabajador"),rs.getString("nombre"),rs.getString("apellidos"),rs.getString("contraseña"),"Gerente"));
+                    oblist.add(new Empleado(rs.getString("numTrabajador"),rs.getString("nombre"),rs.getString("apellidos"),rs.getString("contrasena"),"Gerente"));
                 }else{
-                    oblist.add(new Empleado(rs.getString("numTrabajador"),rs.getString("nombre"),rs.getString("apellidos"),rs.getString("contraseña"),"Trabajador"));
+                    oblist.add(new Empleado(rs.getString("numTrabajador"),rs.getString("nombre"),rs.getString("apellidos"),rs.getString("contrasena"),"Trabajador"));
                 }
             }
             col_numTrabajador.setCellValueFactory(new PropertyValueFactory("numTrabajador"));
