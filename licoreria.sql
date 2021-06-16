@@ -79,7 +79,7 @@ CREATE TABLE `producto` (
 --
 
 CREATE TABLE `venta` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` datetime DEFAULT NULL,
   `total` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;

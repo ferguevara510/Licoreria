@@ -58,7 +58,7 @@ public class FXMLEditarProveedorController implements Initializable {
 
     @FXML
     private void regresar(MouseEvent mouseEvent) throws IOException {
-        VistaController.cargarVista(mouseEvent,"Principal","vista/Principal.fxml");
+        VistaController.cargarVista(mouseEvent,"Principal","vista/ConsultarProveedores.fxml");
     }
 
     private boolean validarCampos(){
