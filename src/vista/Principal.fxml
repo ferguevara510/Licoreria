@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="600.0" minWidth="650.0" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLPrincipalController">
+<VBox minHeight="600.0" minWidth="650.0" prefHeight="600.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLPrincipalController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="811.0" style="-fx-background-color: #D7CCC8;" VBox.vgrow="ALWAYS">
          <children>
@@ -64,7 +64,7 @@
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="405.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../vista/imagenes/employee.png" />
+                  <Image url="@../../../../../Downloads/proveedor.png" />
                </image>
             </ImageView>
             <Button fx:id="proveedoresBtn" layoutX="417.0" layoutY="464.0" mnemonicParsing="false" onMouseClicked="#irProveedor" prefHeight="31.0" prefWidth="135.0" style="-fx-background-radius: 55; -fx-background-color: #FFB74D;" text="PROVEEDORES">

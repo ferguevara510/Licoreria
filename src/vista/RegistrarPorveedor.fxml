@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLRegistrarProveedorController">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLRegistrarProveedorController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: #D7CCC8;" VBox.vgrow="ALWAYS">
          <children>
@@ -19,7 +19,7 @@
                   <Font name="Bernard MT Condensed" size="50.0" />
                </font>
             </Label>
-            <Button fx:id="cancelarBtn" layoutX="302.0" layoutY="313.0" mnemonicParsing="false" onMouseClicked="#regresar" style="-fx-background-color: #FFE0B2; -fx-background-radius: 55;" text="Cancelar" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="50.0">
+            <Button fx:id="cancelarBtn" layoutX="302.0" layoutY="313.0" mnemonicParsing="false" onMouseClicked="#regresar" style="-fx-background-color: #FFE0B2; -fx-background-radius: 55;" text="Regresar" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="50.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
@@ -51,7 +51,10 @@
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font></TextField>
-            <TextArea fx:id="direccionProveedorTf" layoutX="274.0" layoutY="242.0" prefHeight="75.0" prefWidth="225.0" style="-fx-background-color: #EFEBE9;" />
+            <TextArea fx:id="direccionProveedorTf" layoutX="274.0" layoutY="242.0" prefHeight="75.0" prefWidth="225.0" style="-fx-background-color: #EFEBE9;">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></TextArea>
             <Button fx:id="aceptarBtn" layoutX="400.0" layoutY="286.0" mnemonicParsing="false" onAction="#guardarProveedor" style="-fx-background-color: #FFE0B2; -fx-background-radius: 55;" text="Aceptar" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="175.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />

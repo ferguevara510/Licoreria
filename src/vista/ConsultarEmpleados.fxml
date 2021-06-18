@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLConsultarController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.FXMLConsultarController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #D7CCC8;" VBox.vgrow="ALWAYS">
          <children>
@@ -31,7 +31,7 @@
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="cerrarBtn" layoutX="192.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#regresar" style="-fx-background-color: #BDBDBD; -fx-background-radius: 55;" text="Salir" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="750.0">
+            <Button fx:id="cerrarBtn" layoutX="192.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#regresar" style="-fx-background-color: #BDBDBD; -fx-background-radius: 55;" text="Regresar" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="750.0">
                <font>
                   <Font name="Century Gothic Bold" size="15.0" />
                </font>
@@ -53,7 +53,7 @@
             </Button>
             <TableView fx:id="table" layoutX="50.0" layoutY="100.0" prefHeight="435.0" prefWidth="811.0" style="-fx-background-color: #EFEBE9#FFCC80;">
               <columns>
-                <TableColumn fx:id="col_numTrabajador" prefWidth="139.20000457763672" text="NÃºmero" />
+                <TableColumn fx:id="col_numTrabajador" prefWidth="139.20000457763672" text="Numero empleado" />
                 <TableColumn fx:id="col_nombre" prefWidth="276.0000305175781" text="Nombre" />
                   <TableColumn fx:id="col_apellidos" minWidth="0.0" prefWidth="300.0000915527344" text="Apellidos" />
                   <TableColumn fx:id="col_tipo" minWidth="0.0" prefWidth="93.5999755859375" text="Puesto" />
